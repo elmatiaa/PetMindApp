@@ -1,0 +1,23 @@
+[
+  {
+    "id": "GUIA-VCA-001",
+    "titulo": "Requerimientos Críticos de Taurina en Felinos",
+    "especie": "gato",
+    "fuente": "VCA Animal Hospitals (Weir, Llera, & Yuill)",
+    "contenido": "Los gatos son carnívoros estrictos que no pueden sintetizar cantidades adecuadas de taurina a partir de otros aminoácidos como la metionina o cisteína. La deficiencia de taurina provoca cardiomiopatía dilatada felina irreversible, ceguera por degeneración central de la retina y falla reproductiva. Jamás debe administrarse alimento de perro a gatos, ya que el alimento canino no cumple con los niveles mínimos de taurina (mínimo 2000-2500 mg/kg en materia seca)."
+  },
+  {
+    "id": "GUIA-VCA-002",
+    "titulo": "Nutrición y Relación Calcio/Fósforo en Cachorros de Razas Grandes y Gigantes",
+    "especie": "perro",
+    "fuente": "VCA Animal Hospitals (Grant, Llera, & Buzhardt)",
+    "contenido": "Los cachorros de razas grandes (Labrador, Golden, Pastor Alemán) y gigantes (Gran Danés, Mastín) tienen un crecimiento acelerado y son incapaces de regular eficientemente la absorción intestinal pasiva de calcio. Dietas con exceso de calcio (>1.4% en materia seca) o relaciones Ca:P desbalanceadas provocan osteocondritis disecante (OCD), displasia de cadera y deformidades angulares de las extremidades. Su dieta debe mantener niveles controlados de calcio (1.0% a 1.2%) y niveles calóricos moderados."
+  },
+  {
+    "id": "GUIA-VCA-003",
+    "titulo": "Manejo Nutricional del Paciente Geriátrico y Prevención Renal",
+    "especie": "perro",
+    "fuente": "VCA Animal Hospitals",
+    "contenido": "En perros senior (>7 u 8 años), la tasa de filtración glomerular disminuye progresivamente. Una dieta con restricción controlada de fósforo (0.4% - 0.6%) y ácidos grasos Omega-3 (EPA/DHA) reduce la inflamación renal y la progresión de nefropatías crónicas, manteniendo niveles proteicos de alta digestibilidad sin sobrecargar los riñones."
+  }
+]
