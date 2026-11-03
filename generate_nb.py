@@ -13,10 +13,10 @@ notebook = {
                 '**Frameworks Principales:** `LangGraph`, `LangChain`, `ChatGoogleGenerativeAI (Gemini)`, `FAISS`, `Pydantic v2`  \n',
                 '---\n',
                 '### Objetivos e Indicadores de Logro:\n',
-                '- **IL2.1 (IE1, IE2):** Agente funcional con herramientas tipadas de Consulta (catálogo RAG), Escritura (registro de órdenes) y Razonamiento (validación clínica).\n',
-                '- **IL2.2 (IE3, IE4):** Memoria de corto plazo (STM - ventana episódica) y memoria de largo plazo (LTM - perfiles y guías clínicas vectorizadas).\n',
-                '- **IL2.3 (IE5, IE7):** Planificación adaptativa y enrutamiento dinámico ante condiciones cambiantes (alertas biológicas vs compra vs asesoría).\n',
-                '- **IL2.4 (IE6, IE8):** Orquestación mediante StateGraph determinista, trazable y auditable.'
+                '- **IL2.1:** Agente funcional con herramientas tipadas de Consulta (catálogo RAG), Escritura (registro de órdenes) y Razonamiento (validación clínica).\n',
+                '- **IL2.2:** Memoria de corto plazo (STM - ventana episódica) y memoria de largo plazo (LTM - perfiles y guías clínicas vectorizadas).\n',
+                '- **IL2.3:** Planificación adaptativa y enrutamiento dinámico ante condiciones cambiantes (alertas biológicas vs compra vs asesoría).\n',
+                '- **IL2.4:** Orquestación mediante StateGraph determinista, trazable y auditable.'
             ]
         },
         {
@@ -96,7 +96,7 @@ notebook = {
             'cell_type': 'markdown',
             'metadata': {},
             'source': [
-                '## 4. Fuentes de Datos y Memoria de Largo Plazo (LTM Semántica - IE4)\n',
+                '## 4. Fuentes de Datos y Memoria de Largo Plazo\n',
                 'Indexamos en memoria vectorial FAISS:\n',
                 '1. **Catálogo de Productos de PetMind** (alimentos caninos y felinos con composición garantizada).\n',
                 '2. **Guías Clínicas Veterinarias (VCA Animal Hospitals)** (taurina, relación calcio-fósforo, prevención renal).'
@@ -165,7 +165,7 @@ notebook = {
             'cell_type': 'markdown',
             'metadata': {},
             'source': [
-                '## 5. Implementación de Herramientas Tipadas (Tools - IE1, IE2)\n',
+                '## 5. Implementación de Herramientas Tipadas\n',
                 'Siguiendo la metodología de la Sesión 10, implementamos subclases de `BaseTool` con esquemas estrictos en `Pydantic v2`:\n',
                 '- **Herramienta 1 (Consulta):** `ConsultarCatalogoTool` (recuperación RAG semántica del catálogo).\n',
                 '- **Herramienta 2 (Razonamiento / Validación Médica):** `ValidarSeguridadNutricionalTool` (evaluación de riesgos fisiológicos y guardrails).\n',
@@ -260,7 +260,7 @@ notebook = {
             'cell_type': 'markdown',
             'metadata': {},
             'source': [
-                '## 6. Arquitectura del Agente con LangGraph: Estado, Memoria y Planificación (IE3, IE5)\n',
+                '## 6. Arquitectura del Agente con LangGraph: Estado, Memoria y Planificación\n',
                 'Definimos el grafo de estado compartido `EstadoPetMind` que incorpora memoria de corto y largo plazo con enrutamiento dinámico.'
             ]
         },
@@ -396,7 +396,7 @@ notebook = {
             'cell_type': 'markdown',
             'metadata': {},
             'source': [
-                '## 7. Batería de Pruebas y Casos de Demostración en Vivo (IE7)\n',
+                '## 7. Batería de Pruebas y Casos de Demostración en Vivo\n',
                 'Validamos los 3 escenarios organizacionales:\n',
                 '1. **Escenario 1 (Asesoría Clínica RAG):** Cachorro gigante y balance Ca:P.\n',
                 '2. **Escenario 2 (Guardrail de Riesgo Biológico):** Intento de alimentar gatos con comida canina.\n',
