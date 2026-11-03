@@ -6,9 +6,9 @@ notebook = {
             'cell_type': 'markdown',
             'metadata': {},
             'source': [
-                '# 🐾 PetMind: Sistema Agéntico de Recomendación Nutricional y Gestión de Dietas\n',
+                '#  PetMind: Sistema Agéntico de Recomendación Nutricional y Gestión de Dietas\n',
                 '### Asignatura: Ingeniería de Soluciones con IA (ISY0101) - Evaluación Parcial N°2\n',
-                '**Caso de Aplicación:** NutriPet Catapilco  \n',
+                '**Caso de Aplicación:** PetMind  \n',
                 '**Integrantes:** Gustavo Giha — Matias Morales  \n',
                 '**Frameworks Principales:** `LangGraph`, `LangChain`, `ChatGoogleGenerativeAI (Gemini)`, `FAISS`, `Pydantic v2`  \n',
                 '---\n',
@@ -56,10 +56,10 @@ notebook = {
                 '    from google.colab import userdata\n',
                 '    GOOGLE_API_KEY = userdata.get("GOOGLE_API_KEY")\n',
                 '    os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY\n',
-                '    print("✅ Clave GOOGLE_API_KEY cargada exitosamente desde Secrets de Colab.")\n',
+                '    print("[OK] Clave GOOGLE_API_KEY cargada exitosamente desde Secrets de Colab.")\n',
                 'except Exception:\n',
                 '    if "GOOGLE_API_KEY" in os.environ:\n',
-                '        print("✅ Clave GOOGLE_API_KEY detectada en el entorno local.")\n',
+                '        print("[OK] Clave GOOGLE_API_KEY detectada en el entorno local.")\n',
                 '    else:\n',
                 '        import getpass\n',
                 '        os.environ["GOOGLE_API_KEY"] = getpass.getpass("Google API Key: ")\n'
@@ -89,7 +89,7 @@ notebook = {
                 '\n',
                 '# Modelo de embeddings semánticos para memoria LTM\n',
                 'embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")\n',
-                'print("✅ LLM y Embeddings instanciados correctamente.")\n'
+                'print("[OK] LLM y Embeddings instanciados correctamente.")\n'
             ]
         },
         {
@@ -98,7 +98,7 @@ notebook = {
             'source': [
                 '## 4. Fuentes de Datos y Memoria de Largo Plazo (LTM Semántica - IE4)\n',
                 'Indexamos en memoria vectorial FAISS:\n',
-                '1. **Catálogo de Productos de NutriPet Catapilco** (alimentos caninos y felinos con composición garantizada).\n',
+                '1. **Catálogo de Productos de PetMind** (alimentos caninos y felinos con composición garantizada).\n',
                 '2. **Guías Clínicas Veterinarias (VCA Animal Hospitals)** (taurina, relación calcio-fósforo, prevención renal).'
             ]
         },
@@ -111,7 +111,7 @@ notebook = {
                 'from langchain_community.vectorstores import FAISS\n',
                 'from langchain_core.documents import Document\n',
                 '\n',
-                '# Base de datos simulada del catálogo local (NutriPet Catapilco)\n',
+                '# Base de datos simulada del catálogo local (PetMind)\n',
                 'CATALOGO_PRODUCTOS = [\n',
                 '    Document(\n',
                 '        page_content="SKU: NP-DOG-001 | NutriPuppy Giant Growth Formula | Especie: perro | Etapa: cachorro | Raza: gigante | Formato: seco | Precio: $46.990 CLP | Stock: 18 | Proteína: 30% | Calcio: 1.1% | Fósforo: 0.9% | Descripción: Balance estricto Ca:P (1.2:1) con condroitina para prevenir displasia y osteocondritis en cachorros de rápido crecimiento.",\n',
@@ -158,7 +158,7 @@ notebook = {
                 '# Creación de vectorstores locales FAISS\n',
                 'vectorstore_catalogo = FAISS.from_documents(CATALOGO_PRODUCTOS, embeddings)\n',
                 'vectorstore_guias = FAISS.from_documents(GUIAS_VETERINARIAS, embeddings)\n',
-                'print("✅ LTM Vectorial indexada exitosamente con Catálogo y Guías Clínicas.")\n'
+                'print("[OK] LTM Vectorial indexada exitosamente con Catálogo y Guías Clínicas.")\n'
             ]
         },
         {
@@ -192,13 +192,13 @@ notebook = {
                 '\n',
                 'class ConsultarCatalogoTool(BaseTool):\n',
                 '    name: str = "consultar_catalogo_nutripet"\n',
-                '    description: str = "Consulta el inventario y especificaciones técnicas de alimentos disponibles en NutriPet Catapilco."\n',
+                '    description: str = "Consulta el inventario y especificaciones técnicas de alimentos disponibles en PetMind."\n',
                 '    args_schema: Type[BaseModel] = ConsultaCatalogoInput\n',
                 '\n',
                 '    def _run(self, query: str, k: int = 2) -> str:\n',
                 '        resultados = vectorstore_catalogo.similarity_search(query, k=k)\n',
                 '        if not resultados:\n',
-                '            return "No se encontraron productos coincidentes en el catálogo de NutriPet."\n',
+                '            return "No se encontraron productos coincidentes en el catálogo de PetMind."\n',
                 '        return "\\n---\\n".join([doc.page_content for doc in resultados])\n',
                 '\n',
                 '# --- 2. HERRAMIENTA DE RAZONAMIENTO ---\n',
@@ -217,11 +217,11 @@ notebook = {
                 '        alim = alimento_destinado.lower().strip()\n',
                 '        if "gato" in esp and "perro" in alim:\n',
                 '            guia = vectorstore_guias.similarity_search("taurina deficiencia gato", k=1)[0]\n',
-                '            return f"🚨 ALERTA BIOLÓGICA CRÍTICA: {guia.page_content} -> INCOMPATIBILIDAD VETERINARIA. RECHAZAR SOLICITUD."\n',
+                '            return f"[ALERTA BIOLÓGICA CRÍTICA]: {guia.page_content} -> INCOMPATIBILIDAD VETERINARIA. RECHAZAR SOLICITUD."\n',
                 '        if "perro" in esp and "cachorro" in etapa.lower() and ("gigante" in alim or "grande" in alim):\n',
                 '            guia = vectorstore_guias.similarity_search("calcio fosforo cachorro gigante", k=1)[0]\n',
-                '            return f"⚠️ REQUISITO CLÍNICO: {guia.page_content} -> VERIFICAR RELACIÓN Ca:P RESTRINGIDA (NP-DOG-001)."\n',
-                '        return "✅ DIETA SEGURA: No se detectan contraindicaciones biológicas graves."\n',
+                '            return f"[REQUISITO CLÍNICO]: {guia.page_content} -> VERIFICAR RELACIÓN Ca:P RESTRINGIDA (NP-DOG-001)."\n',
+                '        return "[OK] DIETA SEGURA: No se detectan contraindicaciones biológicas graves."\n',
                 '\n',
                 '# --- 3. HERRAMIENTA DE ESCRITURA ---\n',
                 'class RegistroOrdenInput(BaseModel):\n',
@@ -232,7 +232,7 @@ notebook = {
                 '\n',
                 'class RegistrarOrdenCompraTool(BaseTool):\n',
                 '    name: str = "registrar_orden_compra"\n',
-                '    description: str = "Herramienta de escritura para persistir una orden de compra formal en NutriPet Catapilco."\n',
+                '    description: str = "Herramienta de escritura para persistir una orden de compra formal en PetMind."\n',
                 '    args_schema: Type[BaseModel] = RegistroOrdenInput\n',
                 '\n',
                 '    def _run(self, cliente_nombre: str, sku: str, cantidad: int = 1, mascota_nombre: str = "Mascota") -> str:\n',
@@ -247,13 +247,13 @@ notebook = {
                 '            "estado": "CONFIRMADA_AUDITADA"\n',
                 '        }\n',
                 '        ORDENES_REGISTRADAS.append(registro)\n',
-                '        return f"✅ ORDEN REGISTRADA EXITOSAMENTE: [ID: {orden_id}] - {cantidad}x {sku} para \'{mascota_nombre}\' (Tutor: {cliente_nombre})."\n',
+                '        return f"[OK] ORDEN REGISTRADA EXITOSAMENTE: [ID: {orden_id}] - {cantidad}x {sku} para \'{mascota_nombre}\' (Tutor: {cliente_nombre})."\n',
                 '\n',
                 'tool_consulta = ConsultarCatalogoTool()\n',
                 'tool_razonamiento = ValidarSeguridadNutricionalTool()\n',
                 'tool_escritura = RegistrarOrdenCompraTool()\n',
                 'herramientas = [tool_consulta, tool_razonamiento, tool_escritura]\n',
-                'print(f"✅ Herramientas configuradas: {[t.name for t in herramientas]}")\n'
+                'print(f"[OK] Herramientas configuradas: {[t.name for t in herramientas]}")\n'
             ]
         },
         {
@@ -282,7 +282,7 @@ notebook = {
                 '    intencion_actual: str = Field(default="asesoria")\n',
                 '    recomendacion_final: Optional[str] = Field(default=None)\n',
                 '\n',
-                'print("✅ Esquema EstadoPetMind compilado.")\n'
+                'print("[OK] Esquema EstadoPetMind compilado.")\n'
             ]
         },
         {
@@ -316,7 +316,7 @@ notebook = {
                 '        "alimento_destinado": ultimo_texto\n',
                 '    })\n',
                 '    if "ALERTA BIOLÓGICA" in resultado:\n',
-                '        msg = AIMessage(content=f"{resultado}\\n\\n🛑 Por razones de bienestar animal en NutriPet Catapilco, NO es posible autorizar esta recomendación. Te sugerimos revisar las fórmulas felinas específicas con taurina activa.")\n',
+                '        msg = AIMessage(content=f"{resultado}\\n\\nPor razones de bienestar animal en PetMind, NO es posible autorizar esta recomendación. Te sugerimos revisar las fórmulas felinas específicas con taurina activa.")\n',
                 '        return {"alerta_critica": resultado, "messages": [msg], "recomendacion_final": msg.content}\n',
                 '    return {"alerta_critica": None}\n',
                 '\n',
@@ -324,7 +324,7 @@ notebook = {
                 '    consulta = estado.messages[-1].content\n',
                 '    contexto_catalogo = tool_consulta.run({"query": consulta, "k": 2})\n',
                 '    prompt_sistema = (\n',
-                '        "Eres PetMind, el especialista en nutrición clínica de NutriPet Catapilco.\\n"\n',
+                '        "Eres PetMind, el especialista en nutrición clínica de PetMind.\\n"\n',
                 '        "Responde de forma clara, técnica y comercial. Cita obligatoriamente SKU, Precio CLP y Justificación Nutricional.\\n"\n',
                 '        f"CATÁLOGO DISPONIBLE:\\n{contexto_catalogo}\\n"\n',
                 '    )\n',
@@ -343,9 +343,9 @@ notebook = {
                 '        "cantidad": 1,\n',
                 '        "mascota_nombre": "Max"\n',
                 '    })\n',
-                '    msg = AIMessage(content=f"{resultado_escritura}\\nTu orden ha sido registrada en el sistema de mesón de NutriPet Catapilco. Puedes pasar a retirar en tienda.")\n',
+                '    msg = AIMessage(content=f"{resultado_escritura}\\nTu orden ha sido registrada en el sistema de mesón de PetMind. Puedes pasar a retirar en tienda.")\n',
                 '    return {"messages": [msg], "recomendacion_final": msg.content}\n',
-                'print("✅ Nodos del grafo definidos.")\n'
+                'print("[OK] Nodos del grafo definidos.")\n'
             ]
         },
         {
@@ -389,7 +389,7 @@ notebook = {
                 'builder.add_edge("ordenes", END)\n',
                 '\n',
                 'agente_petmind = builder.compile()\n',
-                'print("🚀 Agente PetMind compilado y listo para ejecución.")\n'
+                'print("[OK] Agente PetMind compilado y listo para ejecución.")\n'
             ]
         },
         {
@@ -411,11 +411,11 @@ notebook = {
             'source': [
                 'def probar_agente(pregunta: str):\n',
                 '    print("\\n" + "="*70)\n',
-                '    print(f"👤 TUTOR: {pregunta}")\n',
+                '    print(f"TUTOR: {pregunta}")\n',
                 '    print("="*70)\n',
                 '    estado_inicial = {"messages": [HumanMessage(content=pregunta)]}\n',
                 '    salida = agente_petmind.invoke(estado_inicial)\n',
-                '    print(f"🐾 PETMIND:\\n{salida[\'recomendacion_final\']}")\n',
+                '    print(f"PETMIND:\\n{salida[\'recomendacion_final\']}")\n',
                 '\n',
                 '# Prueba 1: Cachorro Gigante\n',
                 'probar_agente("Tengo un cachorro Gran Danés de 3 meses. ¿Qué alimento le doy para cuidar sus articulaciones?")\n',
@@ -432,7 +432,7 @@ notebook = {
             'metadata': {},
             'source': [
                 '## 8. Evidencia de Auditoría Transaccional\n',
-                'Mostramos las órdenes persistidas en el sistema de NutriPet Catapilco.'
+                'Mostramos las órdenes persistidas en el sistema de PetMind.'
             ]
         },
         {
@@ -443,7 +443,7 @@ notebook = {
             'source': [
                 'import pandas as pd\n',
                 'df_ordenes = pd.DataFrame(ORDENES_REGISTRADAS)\n',
-                'print("📋 REGISTRO AUDITABLE DE ÓRDENES EN NUTRIPET CATAPILCO:")\n',
+                'print("REGISTRO AUDITABLE DE ÓRDENES EN PETMIND:")\n',
                 'display(df_ordenes) if not df_ordenes.empty else print("No hay órdenes registradas.")\n'
             ]
         }
@@ -463,7 +463,7 @@ notebook = {
     'nbformat_minor': 5
 }
 
-with open('C:/Users/Asus Tuf Gaming A15/Downloads/Duoc/Ing. de Sol. con IA/EP2/PetMind/PetMind_Agente_NutriPet_ISY0101.ipynb', 'w', encoding='utf-8') as f:
+with open('C:/Users/Asus Tuf Gaming A15/Downloads/Duoc/Ing. de Sol. con IA/EP2/PetMind/PetMind_Agente_PetMind_ISY0101.ipynb', 'w', encoding='utf-8') as f:
     json.dump(notebook, f, indent=2, ensure_ascii=False)
 
 print('Notebook creado con exito!')
