@@ -5,16 +5,15 @@
 [![Framework: LangGraph](https://img.shields.io/badge/Framework-LangGraph-orange.svg)](https://langchain-ai.github.io/langgraph/)
 [![Model: Gemini 2.5 Flash](https://img.shields.io/badge/LLM-Gemini%203.5%20Flash--Lite-4285F4.svg)](https://ai.google.dev/)
 
-**Asignatura:** Ingeniería de Soluciones con IA (ISY0101)  
-**Evaluación:** Evaluación Parcial N°2 — Encargo y Presentación (35%)  
-**Organización:** NutriPet Catapilco (Zapallar, Región de Valparaíso)  
-**Integrantes:** Gustavo Giha — Matias Morales  
+**Asignatura:** Ingeniería de Soluciones con IA  
+**Organización:** NutriPet (Ficticia) 
+**Integrantes:** Matias Morales  
 
 ---
 
 ## 📌 1. Resumen Ejecutivo y Caso de Uso
 
-**PetMind** es un agente conversacional y transaccional inteligente diseñado para resolver la dependencia del conocimiento empírico en la tienda de alimentos para mascotas **NutriPet Catapilco**. 
+**PetMind** es un agente conversacional y transaccional inteligente diseñado para resolver la dependencia del conocimiento empírico en la tienda de alimentos para mascotas **NutriPet**. 
 
 A diferencia de un asistente conversacional genérico, **PetMind** implementa una arquitectura basada en **LangGraph** capaz de:
 1. **Consultar:** Recuperación semántica RAG del catálogo oficial de alimentos caninos y felinos con composición analítica garantizada.
@@ -116,7 +115,7 @@ jupyter notebook PetMind_Agente_NutriPet_ISY0101.ipynb
 
 ---
 
-## 📚 7. Referencias Bibliográficas (APA 7ma)
+## 📚 7. Referencias Bibliográficas
 - Grant, C., Llera, R., & Buzhardt, L. (2024). *Nutritional requirements of large and giant breed puppies*. VCA Animal Hospitals.
 - LangChain / LangGraph Documentation. (2026). *StateGraph and Multi-Agent Orchestration*. https://langchain-ai.github.io/langgraph/
 - Weir, M., Llera, R., & Yuill, C. (2023). *Taurine in cats*. VCA Animal Hospitals.
