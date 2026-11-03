@@ -77,7 +77,7 @@ Para validar la adaptabilidad del agente frente a diversas condiciones organizac
 - **LangGraph vs. Cadenas Lineales:** LangGraph permite aislar la toma de decisiones críticas en nodos especializados, garantizando que una alerta de seguridad médica interrumpa el flujo de venta sin consumir llamadas innecesarias a la generación libre de texto.
 - **Pydantic v2:** Asegura que los parámetros recibidos por las herramientas no contengan tipos de datos inválidos ni inyecciones de prompt maliciosas que desestabilicen el inventario.
 - **Google Gemini 2.5 Flash:** Brinda latencias de respuesta inferiores a 1.5 segundos por turno, fundamental para la atención presencial en el mesón de NutriPet Catapilco.
-- **FAISS (Facebook AI Similarity Search):** Permite búsquedas vectoriales in-memory ultra rápidas y de bajo consumo computacional, ideal para ejecutarse en entornos locales o Google Colab sin requerir clusters dedicados.
+- **FAISS:** Permite búsquedas vectoriales in-memory ultra rápidas y de bajo consumo computacional, ideal para ejecutarse en entornos locales o Google Colab sin requerir clusters dedicados.
 
 ### 4.2 Repositorio de Código y Recursos
 Todo el código fuente, catálogo de datos, guías clínicas y el notebook ejecutable se encuentran estructurados en el repositorio:
@@ -96,7 +96,7 @@ La implementación de **PetMind** demostró que los agentes inteligentes basados
 **
 
 ### 5.3 Declaración Ética de Uso de Inteligencia Artificial
-Se declara que las herramientas generativas se emplearon exclusivamente como soporte para la estructuración sintáctica del código y diagramación en Markdown. El planteamiento del caso organizacional, el diseño de la arquitectura del agente, la selección de hiperparámetros y las reflexiones críticas son autoría exclusiva de los integrantes.
+Declaramos que las herramientas generativas se emplearon exclusivamente como soporte para la estructuración sintáctica del código, diagramación en Markdown y la corrección de ortografía en los textos entregables. El planteamiento del caso organizacional, el diseño de la arquitectura del agente y las reflexiones críticas son autoría exclusiva de los integrantes.
 
 ---
 
