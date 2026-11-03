@@ -83,7 +83,7 @@ notebook = {
                 '\n',
                 '# Modelo generativo de razonamiento\n',
                 'llm = ChatGoogleGenerativeAI(\n',
-                '    model="gemini-2.5-flash",\n',
+                '    model="gemini-3.8-flash",\n',
                 '    temperature=0.2\n',
                 ')\n',
                 '\n',
