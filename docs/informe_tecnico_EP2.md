@@ -1,8 +1,7 @@
-# INFORME TÉCNICO: DESARROLLO E IMPLEMENTACIÓN DE AGENTE INTELIGENTE FUNCIONAL CON LANGGRAPH
+# INFORME TÉCNICO PETMIND
 **Asignatura:** Ingeniería de Soluciones con IA  
 **Proyecto:** PetMind — Sistema Agéntico de Recomendación Nutricional y Gestión de Dietas Veterinarias.  
-**Integrantes:** Matias Morales    
-**Fecha:** Semana 12/13, 2026  
+**Integrantes:** Matias Morales     
 
 ---
 
